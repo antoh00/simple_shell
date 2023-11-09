@@ -1,35 +1,21 @@
-#include "stdio.h"
-#include "stdlib.h"
-#include "unistd.h"
-
-
-/**
- *main -  UNIX command line interpreter.
- *@argc: int.
- *@argv: char.
- * Return: Always 0.
+#include "shell.h"
+/*
+*main
+*@c:
+*@argv
+*Return: 0
 */
 
-int main(void)
-{
-char cwd[1024];
-char command[100];
-
-    // Display a formatted prompt
-    printf("$: ");
+int main(void) {
+    char *prompt = "(shell)> $ ";
     
-    // Read user input
-    scanf("%s", command);
+    size_t size = 10;
+    char *buf = malloc(sizeof(char) * size);
 
-    // Display a greeting message
-    //printf(" %s!\n", command);
-    if (getcwd(cwd, sizeof(cwd)) !== NULL){
-        printf("%s:")
-    }
-    else{
-        perror("./shell: No such file directory")
-    }
+    printf("%s", prompt);
+    getline(&buf, &size, stdin);
 
+    printf("%s\n", buf);
+    free(buf);
     return (0);
-
 }
