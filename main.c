@@ -1,4 +1,5 @@
 #include "stdio.h"
+
 /**
  *main -  UNIX command line interpreter.
  *@argc: int.
@@ -8,6 +9,17 @@
 
 int main(void)
 {
-printf("Hello World!\n");
+char command[100];
 
-return (0); }
+    // Display a formatted prompt
+    printf("$: ");
+    
+    // Read user input
+    scanf("%s", command);
+
+    // Display a greeting message
+    printf(" %s!\n", command);
+
+    return (0);
+
+}
