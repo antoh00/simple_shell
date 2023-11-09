@@ -1,4 +1,7 @@
 #include "stdio.h"
+#include "stdlib.h"
+#include "unistd.h"
+
 
 /**
  *main -  UNIX command line interpreter.
@@ -9,6 +12,7 @@
 
 int main(void)
 {
+char cwd[1024];
 char command[100];
 
     // Display a formatted prompt
@@ -18,7 +22,13 @@ char command[100];
     scanf("%s", command);
 
     // Display a greeting message
-    printf(" %s!\n", command);
+    //printf(" %s!\n", command);
+    if (getcwd(cwd, sizeof(cwd)) !== NULL){
+        printf("%s:")
+    }
+    else{
+        perror("./shell: No such file directory")
+    }
 
     return (0);
 
