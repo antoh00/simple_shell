@@ -7,15 +7,18 @@
 */
 
 int main(void) {
-    char *prompt = "(shell)> $ ", *buffer;
+    char *prompt = "$ ", *buffer;
     
     size_t size = 10;
     
+    while (1)
+    {
+        printf("%s", prompt);
+        getline(&buffer, &size, stdin);
 
-    printf("%s", prompt);
-    getline(&buffer, &size, stdin);
-
-    printf("%s\n", buffer);
-    free(buffer);
+        
+        free(buffer); 
+    }
+    
     return (0);
 }
