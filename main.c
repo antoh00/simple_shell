@@ -8,6 +8,12 @@
 
 int main(void)
 {
-printf("Hello World!\n");
+	char command[100];
 
-return (0); }
+	printf("$: ");
+	scanf("%s", command);
+
+
+
+return (0); 
+}
