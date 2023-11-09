@@ -7,15 +7,15 @@
 */
 
 int main(void) {
-    char *prompt = "(shell)> $ ";
+    char *prompt = "(shell)> $ ", *buffer;
     
     size_t size = 10;
-    char *buf = malloc(sizeof(char) * size);
+    
 
     printf("%s", prompt);
-    getline(&buf, &size, stdin);
+    getline(&buffer, &size, stdin);
 
-    printf("%s\n", buf);
-    free(buf);
+    printf("%s\n", buffer);
+    free(buffer);
     return (0);
 }
