@@ -2,29 +2,50 @@
 /*
 *main
 *@c:
-*@argv
+*@argv:
 *Return: 0
 */
+int _putchar(char c)
+{
+    return(write(1, &c, 1));
+}
+int _printString(char *str)
+{
+    int i = 0, count = 0;
+    while (str[i])
+    {
+        count += _putchar(str[i++]);
+    }
+    return (count);
+}
+
 
 int main(void) {
-    char *prompt = "$ ", *buffer;
+    char *prompt = "(shell)$ ";
     
-    size_t size = 100;
-    ssize_t num_chars;
+    char *buffer;
+    size_t size = 32;
+    ssize_t character_count;
+    int i = 0;
     
-    while (1)
-    {
-        printf("%s", prompt);
-        num_chars = getline(&buffer, &size, stdin);
-        
-        if(num_chars = -1){
-            printf("$ Closing shell....\n");
 
-            return (-1);
+    buffer = (char *)malloc(size * sizeof(char));
+    
+    for (i = 1; i > 0; i++)
+    {
+        _printString(prompt);
+        character_count = getline(&buffer, &size, stdin);
+        if (character_count == -1)
+        {
+           _printString("$ Exiting shell.....\n");
+           return(-1);
         }
-        
+        _printString(buffer);
         
     }
-    free(buffer); 
+    
+    free(buffer);
+    
+
     return (0);
 }
